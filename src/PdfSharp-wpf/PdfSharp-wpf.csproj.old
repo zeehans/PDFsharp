@@ -1,18 +1,23 @@
-<Project Sdk="Microsoft.NET.Sdk">
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <TargetFramework>net5.0-windows</TargetFramework>
-    <ProjectType>Local</ProjectType>
-    <AssemblyKeyContainerName></AssemblyKeyContainerName>
-    <AssemblyOriginatorKeyFile>StrongnameKey.snk</AssemblyOriginatorKeyFile>
-    <DefaultClientScript>JScript</DefaultClientScript>
-    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
-    <DefaultTargetSchema>IE50</DefaultTargetSchema>
-    <DelaySign>false</DelaySign>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{02FCC0BB-2AA2-43BA-8D2F-66D168B87A1D}</ProjectGuid>
     <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>PdfSharp</RootNamespace>
-    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
-    <StartupObject></StartupObject>
+    <AssemblyName>PdfSharp-wpf</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
     <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>StrongnameKey.snk</AssemblyOriginatorKeyFile>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
@@ -28,46 +33,52 @@
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
-    <SccProjectName>SAK</SccProjectName>
-    <SccLocalPath>SAK</SccLocalPath>
-    <SccAuxPath>SAK</SccAuxPath>
-    <SccProvider>SAK</SccProvider>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-		<UseWindowsForms>true</UseWindowsForms>
+        <SccProjectName>SAK</SccProjectName>
+        <SccLocalPath>SAK</SccLocalPath>
+        <SccAuxPath>SAK</SccAuxPath>
+        <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <BaseAddress>285212672</BaseAddress>
-    <ConfigurationOverrideFile></ConfigurationOverrideFile>
-    <DefineConstants>TRACE;DEBUG;GDI;UseGdiObjects</DefineConstants>
-    <DocumentationFile></DocumentationFile>
-    <FileAlignment>4096</FileAlignment>
-    <NoStdLib>false</NoStdLib>
-    <NoWarn></NoWarn>
-    <RegisterForComInterop>false</RegisterForComInterop>
-    <RemoveIntegerChecks>false</RemoveIntegerChecks>
-    <LangVersion>default</LangVersion>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;WPF</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DocumentationFile>
+    </DocumentationFile>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <BaseAddress>285212672</BaseAddress>
-    <ConfigurationOverrideFile></ConfigurationOverrideFile>
-    <DefineConstants>TRACE;GDI;UseGdiObjects</DefineConstants>
-    <DocumentationFile>bin\Release\PdfSharp-gdi.xml</DocumentationFile>
-    <FileAlignment>4096</FileAlignment>
-    <NoStdLib>false</NoStdLib>
-    <NoWarn></NoWarn>
-    <RegisterForComInterop>false</RegisterForComInterop>
-    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;WPF</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-    <DebugType>none</DebugType>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <DocumentationFile>bin\Release\PdfSharp-wpf.xml</DocumentationFile>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Update="System">
-      <Name>System</Name>
+    <Reference Include="PresentationCore">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
     </Reference>
-    <Reference Update="System.Drawing">
-      <Name>System.Drawing</Name>
+    <Reference Include="PresentationFramework">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -79,9 +90,6 @@
     </Compile>
     <Compile Include="..\PdfSharp\!internal\TargetContext.cs">
       <Link>!internal\TargetContext.cs</Link>
-    </Compile>
-    <Compile Include="..\PdfSharp\!JetBrains\Annotations.cs">
-      <Link>!JetBrains\Annotations.cs</Link>
     </Compile>
     <Compile Include="..\PdfSharp\Drawing.BarCodes\BarCode.cs">
       <Link>Drawing.BarCodes\BarCode.cs</Link>
@@ -323,9 +331,9 @@
     <Compile Include="..\PdfSharp\Drawing\XGlyphTypeface.cs">
       <Link>Drawing\XGlyphTypeface.cs</Link>
     </Compile>
-    <Compile Include="..\PdfSharp\Drawing\XGradientBrush.cs">
-      <Link>Drawing\XGradientBrush.cs</Link>
-    </Compile>
+        <Compile Include="..\PdfSharp\Drawing\XGradientBrush.cs">
+            <Link>Drawing\XGradientBrush.cs</Link>
+        </Compile>
     <Compile Include="..\PdfSharp\Drawing\XGraphics.cs">
       <Link>Drawing\XGraphics.cs</Link>
     </Compile>
@@ -374,9 +382,9 @@
     <Compile Include="..\PdfSharp\Drawing\XPrivateFontCollection.cs">
       <Link>Drawing\XPrivateFontCollection.cs</Link>
     </Compile>
-    <Compile Include="..\PdfSharp\Drawing\XRadialGradientBrush.cs">
-      <Link>Drawing\XRadialGradientBrush.cs</Link>
-    </Compile>
+        <Compile Include="..\PdfSharp\Drawing\XRadialGradientBrush.cs">
+            <Link>Drawing\XRadialGradientBrush.cs</Link>
+        </Compile>
     <Compile Include="..\PdfSharp\Drawing\XRect.cs">
       <Link>Drawing\XRect.cs</Link>
     </Compile>
@@ -401,9 +409,9 @@
     <Compile Include="..\PdfSharp\Drawing\XVector.cs">
       <Link>Drawing\XVector.cs</Link>
     </Compile>
-    <Compile Include="..\PdfSharp\Events\DocumentEvents.cs">
-      <Link>Events\DocumentEvents.cs</Link>
-    </Compile>
+        <Compile Include="..\PdfSharp\Events\DocumentEvents.cs">
+            <Link>Events\DocumentEvents.cs</Link>
+        </Compile>
     <Compile Include="..\PdfSharp\Fonts.OpenType\enums\FontTechnology.cs">
       <Link>Fonts.OpenType\enums\FontTechnology.cs</Link>
     </Compile>
@@ -485,27 +493,6 @@
     <Compile Include="..\PdfSharp\Fonts\PlatformFontResolverInfo.cs">
       <Link>Fonts\PlatformFontResolverInfo.cs</Link>
     </Compile>
-    <Compile Include="..\PdfSharp\Forms\ColorComboBox.cs">
-      <Link>Forms\ColorComboBox.cs</Link>
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="..\PdfSharp\Forms\DeviceInfos.cs">
-      <Link>Forms\DeviceInfos.cs</Link>
-    </Compile>
-    <Compile Include="..\PdfSharp\Forms\enums\RenderMode.cs">
-      <Link>Forms\enums\RenderMode.cs</Link>
-    </Compile>
-    <Compile Include="..\PdfSharp\Forms\enums\Zoom.cs">
-      <Link>Forms\enums\Zoom.cs</Link>
-    </Compile>
-    <Compile Include="..\PdfSharp\Forms\PagePreview.cs">
-      <Link>Forms\PagePreview.cs</Link>
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="..\PdfSharp\Forms\PagePreviewCanvas.cs">
-      <Link>Forms\PagePreviewCanvas.cs</Link>
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="..\PdfSharp\Internal\Calc.cs">
       <Link>Internal\Calc.cs</Link>
     </Compile>
@@ -575,12 +562,12 @@
     <Compile Include="..\PdfSharp\Pdf.Actions\PdfAction.cs">
       <Link>Pdf.Actions\PdfAction.cs</Link>
     </Compile>
-    <Compile Include="..\PdfSharp\Pdf.Actions\PdfEmbeddedGoToAction.cs">
-      <Link>Pdf.Actions\PdfEmbeddedGoToAction.cs</Link>
-    </Compile>
-    <Compile Include="..\PdfSharp\Pdf.Actions\PdfRemoteGoToAction.cs">
-      <Link>Pdf.Actions\PdfRemoteGoToAction.cs</Link>
-    </Compile>
+        <Compile Include="..\PdfSharp\Pdf.Actions\PdfEmbeddedGoToAction.cs">
+            <Link>Pdf.Actions\PdfEmbeddedGoToAction.cs</Link>
+        </Compile>
+        <Compile Include="..\PdfSharp\Pdf.Actions\PdfRemoteGoToAction.cs">
+            <Link>Pdf.Actions\PdfRemoteGoToAction.cs</Link>
+        </Compile>
     <Compile Include="..\PdfSharp\Pdf.Actions\PdfGoToAction.cs">
       <Link>Pdf.Actions\PdfGoToAction.cs</Link>
     </Compile>
@@ -608,18 +595,18 @@
     <Compile Include="..\PdfSharp\Pdf.Advanced\PdfDictionaryWithContentStream.cs">
       <Link>Pdf.Advanced\PdfDictionaryWithContentStream.cs</Link>
     </Compile>
-    <Compile Include="..\PdfSharp\Pdf.Advanced\PdfEmbeddedFileStream.cs">
-      <Link>Pdf.Advanced\PdfEmbeddedFileStream.cs</Link>
-    </Compile>
+        <Compile Include="..\PdfSharp\Pdf.Advanced\PdfEmbeddedFileStream.cs">
+            <Link>Pdf.Advanced\PdfEmbeddedFileStream.cs</Link>
+        </Compile>
     <Compile Include="..\PdfSharp\Pdf.Advanced\PdfExtGState.cs">
       <Link>Pdf.Advanced\PdfExtGState.cs</Link>
     </Compile>
     <Compile Include="..\PdfSharp\Pdf.Advanced\PdfExtGStateTable.cs">
       <Link>Pdf.Advanced\PdfExtGStateTable.cs</Link>
     </Compile>
-    <Compile Include="..\PdfSharp\Pdf.Advanced\PdfFileSpecification.cs">
-      <Link>Pdf.Advanced\PdfFileSpecification.cs</Link>
-    </Compile>
+        <Compile Include="..\PdfSharp\Pdf.Advanced\PdfFileSpecification.cs">
+            <Link>Pdf.Advanced\PdfFileSpecification.cs</Link>
+        </Compile>
     <Compile Include="..\PdfSharp\Pdf.Advanced\PdfFont.cs">
       <Link>Pdf.Advanced\PdfFont.cs</Link>
     </Compile>
@@ -653,12 +640,12 @@
     <Compile Include="..\PdfSharp\Pdf.Advanced\PdfInternals.cs">
       <Link>Pdf.Advanced\PdfInternals.cs</Link>
     </Compile>
-    <Compile Include="..\PdfSharp\Pdf.Advanced\PdfNamedDestinationParameters.cs">
-      <Link>Pdf.Advanced\PdfNamedDestinationParameters.cs</Link>
-    </Compile>
-    <Compile Include="..\PdfSharp\Pdf.Advanced\PdfNameDictionary.cs">
-      <Link>Pdf.Advanced\PdfNameDictionary.cs</Link>
-    </Compile>
+        <Compile Include="..\PdfSharp\Pdf.Advanced\PdfNamedDestinationParameters.cs">
+            <Link>Pdf.Advanced\PdfNamedDestinationParameters.cs</Link>
+        </Compile>
+        <Compile Include="..\PdfSharp\Pdf.Advanced\PdfNameDictionary.cs">
+            <Link>Pdf.Advanced\PdfNameDictionary.cs</Link>
+        </Compile>
     <Compile Include="..\PdfSharp\Pdf.Advanced\PdfObjectInternals.cs">
       <Link>Pdf.Advanced\PdfObjectInternals.cs</Link>
     </Compile>
@@ -667,9 +654,6 @@
     </Compile>
     <Compile Include="..\PdfSharp\Pdf.Advanced\PdfPageInheritableObjects.cs">
       <Link>Pdf.Advanced\PdfPageInheritableObjects.cs</Link>
-    </Compile>
-    <Compile Include="..\PdfSharp\Pdf.Advanced\PdfPageInterals.cs">
-      <Link>Pdf.Advanced\PdfPageInterals.cs</Link>
     </Compile>
     <Compile Include="..\PdfSharp\Pdf.Advanced\PdfReference.cs">
       <Link>Pdf.Advanced\PdfReference.cs</Link>
@@ -881,30 +865,30 @@
     <Compile Include="..\PdfSharp\Pdf.Security\PdfStandardSecurityHandler.cs">
       <Link>Pdf.Security\PdfStandardSecurityHandler.cs</Link>
     </Compile>
-    <Compile Include="..\PdfSharp\Pdf.Structure\PdfAttributesBase.cs">
-      <Link>Pdf.Structure\PdfAttributesBase.cs</Link>
-    </Compile>
-    <Compile Include="..\PdfSharp\Pdf.Structure\PdfLayoutAttributes.cs">
-      <Link>Pdf.Structure\PdfLayoutAttributes.cs</Link>
-    </Compile>
-    <Compile Include="..\PdfSharp\Pdf.Structure\PdfMarkedContentReference.cs">
-      <Link>Pdf.Structure\PdfMarkedContentReference.cs</Link>
-    </Compile>
-    <Compile Include="..\PdfSharp\Pdf.Structure\PdfMarkInformation.cs">
-      <Link>Pdf.Structure\PdfMarkInformation.cs</Link>
-    </Compile>
-    <Compile Include="..\PdfSharp\Pdf.Structure\PdfObjectReference.cs">
-      <Link>Pdf.Structure\PdfObjectReference.cs</Link>
-    </Compile>
-    <Compile Include="..\PdfSharp\Pdf.Structure\PdfStructureElement.cs">
-      <Link>Pdf.Structure\PdfStructureElement.cs</Link>
-    </Compile>
-    <Compile Include="..\PdfSharp\Pdf.Structure\PdfStructureTreeRoot.cs">
-      <Link>Pdf.Structure\PdfStructureTreeRoot.cs</Link>
-    </Compile>
-    <Compile Include="..\PdfSharp\Pdf.Structure\PdfTableAttributes.cs">
-      <Link>Pdf.Structure\PdfTableAttributes.cs</Link>
-    </Compile>
+        <Compile Include="..\PdfSharp\Pdf.Structure\PdfAttributesBase.cs">
+            <Link>Pdf.Structure\PdfAttributesBase.cs</Link>
+        </Compile>
+        <Compile Include="..\PdfSharp\Pdf.Structure\PdfLayoutAttributes.cs">
+            <Link>Pdf.Structure\PdfStructureElement.cs</Link>
+        </Compile>
+        <Compile Include="..\PdfSharp\Pdf.Structure\PdfMarkedContentReference.cs">
+            <Link>Pdf.Structure\PdfMarkedContentReference.cs</Link>
+        </Compile>
+        <Compile Include="..\PdfSharp\Pdf.Structure\PdfMarkInformation.cs">
+            <Link>Pdf.Structure\PdfMarkInformation.cs</Link>
+        </Compile>
+        <Compile Include="..\PdfSharp\Pdf.Structure\PdfObjectReference.cs">
+            <Link>Pdf.Structure\PdfObjectReference.cs</Link>
+        </Compile>
+        <Compile Include="..\PdfSharp\Pdf.Structure\PdfStructureElement.cs">
+            <Link>Pdf.Structure\PdfStructureElement.cs</Link>
+        </Compile>
+        <Compile Include="..\PdfSharp\Pdf.Structure\PdfStructureTreeRoot.cs">
+            <Link>Pdf.Structure\PdfStructureTreeRoot.cs</Link>
+        </Compile>
+        <Compile Include="..\PdfSharp\Pdf.Structure\PdfTableAttributes.cs">
+            <Link>Pdf.Structure\PdfTableAttributes.cs</Link>
+        </Compile>
     <Compile Include="..\PdfSharp\Pdf\EntryInfoAttribute.cs">
       <Link>Pdf\EntryInfoAttribute.cs</Link>
     </Compile>
@@ -968,9 +952,9 @@
     <Compile Include="..\PdfSharp\Pdf\PdfCustomValues.cs">
       <Link>Pdf\PdfCustomValues.cs</Link>
     </Compile>
-    <Compile Include="..\PdfSharp\Pdf\PdfNameTreeNode.cs">
-      <Link>Pdf\PdfNameTreeNode.cs</Link>
-    </Compile>
+        <Compile Include="..\PdfSharp\Pdf\PdfNameTreeNode.cs">
+            <Link>Pdf\PdfNameTreeNode.cs</Link>
+        </Compile>
     <Compile Include="..\PdfSharp\Pdf\PdfDate.cs">
       <Link>Pdf\PdfDate.cs</Link>
     </Compile>
@@ -1001,9 +985,9 @@
     <Compile Include="..\PdfSharp\Pdf\PdfLiteral.cs">
       <Link>Pdf\PdfLiteral.cs</Link>
     </Compile>
-    <Compile Include="..\PdfSharp\Pdf\PdfMetadata.cs">
-      <Link>Pdf\PdfMetadata.cs</Link>
-    </Compile>
+        <Compile Include="..\PdfSharp\Pdf\PdfMetadata.cs">
+            <Link>Pdf\PdfMetadata.cs</Link>
+        </Compile>
     <Compile Include="..\PdfSharp\Pdf\PdfName.cs">
       <Link>Pdf\PdfName.cs</Link>
     </Compile>
@@ -1022,9 +1006,9 @@
     <Compile Include="..\PdfSharp\Pdf\PdfNumberObject.cs">
       <Link>Pdf\PdfNumberObject.cs</Link>
     </Compile>
-    <Compile Include="..\PdfSharp\Pdf\PdfNumberTreeNode.cs">
-      <Link>Pdf\PdfNumberTreeNode.cs</Link>
-    </Compile>
+        <Compile Include="..\PdfSharp\Pdf\PdfNumberTreeNode.cs">
+            <Link>Pdf\PdfNumberTreeNode.cs</Link>
+        </Compile>
     <Compile Include="..\PdfSharp\Pdf\PdfObject.cs">
       <Link>Pdf\PdfObject.cs</Link>
     </Compile>
@@ -1157,14 +1141,19 @@
     <Compile Include="..\PdfSharp\SharpZipLib\Zip\ZipException.cs">
       <Link>SharpZipLib\Zip\ZipException.cs</Link>
     </Compile>
-    <EmbeddedResource Include="..\PdfSharp\Forms\PagePreview.resx">
-      <Link>Forms\PagePreview.resx</Link>
-      <DependentUpon>PagePreview.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="..\PdfSharp\Forms\PagePreviewCanvas.resx">
-      <Link>Forms\PagePreviewCanvas.resx</Link>
-      <DependentUpon>PagePreviewCanvas.cs</DependentUpon>
-    </EmbeddedResource>
+    <Compile Include="..\PdfSharp\Windows\enums\RenderMode.cs">
+      <Link>Windows\enums\RenderMode.cs</Link>
+    </Compile>
+    <Compile Include="..\PdfSharp\Windows\enums\Zoom.cs">
+      <Link>Windows\enums\Zoom.cs</Link>
+    </Compile>
+    <Compile Include="..\PdfSharp\Windows\VisualPresenter.cs">
+      <Link>Windows\VisualPresenter.cs</Link>
+    </Compile>
+    <Compile Include="Windows\PagePreview.xaml.cs">
+      <DependentUpon>PagePreview.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\PagePreviewDesignTimeData.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="..\PdfSharp\Resources\Messages.de.restext">
@@ -1175,40 +1164,43 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="StrongnameKey.snk" />
+  </ItemGroup>
+  <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
       <Visible>False</Visible>
       <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
-      <Install>true</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
-      <Install>false</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 3.5</ProductName>
-      <Install>false</Install>
-    </BootstrapperPackage>
     <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
       <Visible>False</Visible>
       <ProductName>.NET Framework 3.5 SP1</ProductName>
-      <Install>false</Install>
+      <Install>true</Install>
     </BootstrapperPackage>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources\images\" />
-    <Folder Include="SharpZipLib\SharpZip\" />
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
     <Content Include="..\PdfSharp\SharpZipLib\ReadMe.txt">
       <Link>SharpZipLib\ReadMe.txt</Link>
     </Content>
   </ItemGroup>
-  <PropertyGroup />
+  <ItemGroup>
+    <Page Include="Windows\PagePreview.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
 </Project>
